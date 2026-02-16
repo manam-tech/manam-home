@@ -1,0 +1,601 @@
+/* CSS Variables */
+:root {
+    --primary-color: #152556;
+    /* Deep Navy Blue (from logo) */
+    --secondary-color: #45AB42;
+    /* Soft Green (from logo) */
+    --accent-color: #FC8509;
+    /* Warm Orange (from logo/user) */
+    --text-dark: #333333;
+    /* Charcoal */
+    --text-light: #555555;
+    /* Medium Gray */
+    --bg-light: #EEF4F1;
+    /* Very Light Sage/Pale Blue tint */
+    --bg-white: #F7F6F2;
+    /* Soft Off-White/Cream */
+    --bg-dark: #1F2A44;
+    /* Dark Navy for sections */
+    --max-width: 1200px;
+    --header-height: 120px;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Utilities */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-dark {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0d1838;
+    /* Darker Navy */
+    border-color: #0d1838;
+}
+
+.btn-large {
+    background-color: white;
+    /* Secondary style as requested */
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-large:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* Header */
+.header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    height: var(--header-height);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+/* Logo Slide Animation */
+.logo span {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.logo h2 {
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    /* Apply the animation: duration, name, fill mode */
+    animation: 2s slide-right forwards;
+    /* Start position: 100% to the left */
+    transform: translateX(-100%);
+    display: inline-block;
+    /* Ensure transform works */
+}
+
+/* Define the animation sequence */
+@keyframes slide-right {
+    to {
+        /* End position: natural position */
+        transform: translateX(0);
+    }
+}
+
+.logo img {
+    height: 100px;
+    /* Larger logo for better visibility */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-list a {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.nav-list a:hover {
+    color: var(--primary-color);
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-color: #eee;
+    /* Fallback */
+    /* Add background image here later */
+    background-image: linear-gradient(rgba(21, 37, 86, 0.7), rgba(21, 37, 86, 0.6)), url('../assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: var(--header-height);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+/* Dynamic Text Animation */
+.hero h1 {
+    position: relative;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    min-height: 1.2em;
+    /* Reserve space */
+}
+
+.hero h1 span.static-text {
+    visibility: hidden;
+    /* Hide original text but keep space */
+    position: absolute;
+    /* Remove from flow */
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.hero h1::before {
+    content: "Expert Care for Your Loved Ones";
+    animation: cycleText 12s infinite;
+    display: inline-block;
+}
+
+@keyframes cycleText {
+
+    0%,
+    30% {
+        content: "Expert Care for Your Loved Ones";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    31% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    32% {
+        content: "Comfort & Dignity in Every Moment";
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    33%,
+    63% {
+        content: "Comfort & Dignity in Every Moment";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    64% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    65% {
+        content: "A Loving Home Away From Home";
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    66%,
+    96% {
+        content: "A Loving Home Away From Home";
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    97% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    98% {
+        content: "Expert Care for Your Loved Ones";
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        content: "Expert Care for Your Loved Ones";
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.feature-list {
+    margin-top: 20px;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-list i {
+    color: var(--secondary-color);
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    border-radius: var(--radius);
+    font-size: 1.5rem;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(69, 171, 66, 0.1);
+    /* Soft Green tint */
+    color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.service-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item .img-placeholder {
+    height: 250px;
+    background-color: #ddd;
+}
+
+/* Contact Section */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    background: white;
+    padding: 50px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-info h2 {
+    color: var(--primary-color);
+}
+
+.contact-info p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-item h4 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+/* .bg-dark .contact-wrapper removed */
+
+/* Overriding section background for contact to make it stand out */
+#contact.bg-dark {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#contact.bg-dark .contact-wrapper {
+    background: white;
+    color: var(--text-dark);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Footer */
+.footer {
+    background-color: #152556;
+    /* Deep Navy */
+    /* Darker shade of primary */
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    opacity: 0.8;
+}
+
+.social-links a:hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header .container {
+        padding: 0 15px;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav.active {
+        transform: translateY(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-grid,
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-wrapper {
+        padding: 30px;
+    }
+}
