@@ -18,21 +18,23 @@
         }
 
         body {
-            background: #e8e4dc;
+            background: #fdfcfb;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
             font-family: 'Noto Sans Tamil', sans-serif;
-            padding: 30px 16px;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
         }
 
         .flyer {
             width: 680px;
-            background: #f5f0e8;
+            background: #ffffff;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         /* Subtle background texture */
@@ -83,8 +85,8 @@
 
         .brand-name-ta {
             font-size: 28px;
-            font-weight: 700;
-            color: #1a2a5e;
+            font-weight: 800;
+            color: #0d1a44;
             font-family: 'Noto Serif Tamil', serif;
             letter-spacing: 2px;
             margin-bottom: 6px;
@@ -93,8 +95,9 @@
         .tagline {
             font-family: 'Noto Serif Tamil', serif;
             font-style: italic;
-            font-size: 14px;
-            color: #555;
+            font-size: 15px;
+            font-weight: 600;
+            color: #111;
             letter-spacing: 0.5px;
         }
 
@@ -109,8 +112,8 @@
         .headline {
             font-family: 'Noto Serif Tamil', serif;
             font-size: 26px;
-            font-weight: 700;
-            color: #1a2a5e;
+            font-weight: 800;
+            color: #0d1a44;
             line-height: 1.45;
         }
 
@@ -157,14 +160,15 @@
         .feature-title {
             font-family: 'Noto Sans Tamil', sans-serif;
             font-size: 15.5px;
-            font-weight: 700;
-            color: #1a2a5e;
+            font-weight: 800;
+            color: #0d1a44;
             margin-bottom: 4px;
         }
 
         .feature-desc {
-            font-size: 13px;
-            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111;
             line-height: 1.65;
         }
 
@@ -175,17 +179,20 @@
             z-index: 1;
             background: rgba(230, 220, 200, 0.45);
             border-radius: 10px;
-            padding: 22px 200px 22px 24px;
+            padding: 22px 30px;
             min-height: 140px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 24px;
         }
 
         .quote-text {
             font-family: 'Noto Serif Tamil', serif;
             font-style: italic;
-            font-size: 14.5px;
-            color: #333;
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
             line-height: 1.75;
         }
 
@@ -223,8 +230,9 @@
 
 
         .address-line {
-            font-size: 14px;
-            color: #333;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #000;
             line-height: 1.7;
             margin-bottom: 10px;
         }
@@ -234,8 +242,8 @@
             align-items: center;
             gap: 8px;
             font-size: 22px;
-            font-weight: 700;
-            color: #1a2a5e;
+            font-weight: 800;
+            color: #0d1a44;
             margin-bottom: 16px;
         }
 
@@ -303,17 +311,18 @@
 
         /* ── FOOTER ── */
         .footer {
-            background: #2a2a2a;
-            padding: 16px 40px;
+            background: #f8f7f4;
+            padding: 20px 40px 40px;
             text-align: center;
             position: relative;
             z-index: 1;
+            border-top: 1px solid #ddd;
         }
 
         .website {
-            font-size: 20px;
-            color: white;
-            font-weight: 400;
+            font-size: 22px;
+            color: #0d1a44;
+            font-weight: 800;
             letter-spacing: 0.5px;
         }
 
@@ -457,8 +466,12 @@
                 மரியாதையுடன் கவனிக்கப்படுவார்கள் என்பதே எங்கள் வாக்குறுதி!"
             </div>
 
-            <!-- Elder reading -->
-            <img src="assets/Elder_read.png" alt="Elder Reading" class="elder-img">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;">
+                <img src="assets/qr_code.jpg" alt="Scan for Location" class="qr-img"
+                    style="width: 100px; height: 100px;">
+                <span style="font-size:11px;color:#555;font-weight:700;text-align:center;line-height:1.2;">இடத்தை
+                    காண<br>ஸ்கேன் செய்க</span>
+            </div>
         </div>
 
         <!-- ADDRESS -->
@@ -478,11 +491,7 @@
                     +91 99949 49525
                 </div>
 
-                <!-- QR Code -->
-                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;">
-                    <img src="assets/qr_code.jpg" alt="Scan for Location" class="qr-img">
-                    <span style="font-size:11px;color:#555;font-weight:500;">இடத்தை காண ஸ்கேன் செய்க</span>
-                </div>
+
             </div>
         </div>
 
