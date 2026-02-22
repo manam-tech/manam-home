@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>மனம் - முதியோர் இல்லம்</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600;700;900&family=Noto+Serif+Tamil:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e8e4dc;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            font-family: 'Noto Sans Tamil', sans-serif;
+            padding: 30px 16px;
+        }
+
+        .flyer {
+            width: 680px;
+            background: #f5f0e8;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Subtle background texture */
+        .flyer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 10%, rgba(210, 195, 170, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(200, 188, 165, 0.25) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── LOGO SECTION ── */
+        .logo-section {
+            padding: 40px 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-mark {
+            width: 130px;
+            height: 110px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        /* SVG-based logo replication */
+        .logo-svg {
+            width: 130px;
+            height: 110px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 52px;
+            font-weight: 900;
+            color: #1a2a5e;
+            letter-spacing: 6px;
+            font-family: 'Noto Sans Tamil', sans-serif;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .brand-name-ta {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a2a5e;
+            font-family: 'Noto Serif Tamil', serif;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            font-family: 'Noto Serif Tamil', serif;
+            font-style: italic;
+            font-size: 14px;
+            color: #555;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── HEADLINE ── */
+        .headline-section {
+            padding: 22px 50px 18px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .headline {
+            font-family: 'Noto Serif Tamil', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2a5e;
+            line-height: 1.45;
+        }
+
+        /* ── FEATURES GRID ── */
+        .features-section {
+            padding: 10px 40px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .feature-icon-wrap {
+            flex-shrink: 0;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 2px solid #c4a96d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .feature-icon-wrap svg {
+            width: 26px;
+            height: 26px;
+            stroke: #c4a96d;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+
+        .feature-title {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 15.5px;
+            font-weight: 700;
+            color: #1a2a5e;
+            margin-bottom: 4px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.65;
+        }
+
+        /* ── QUOTE SECTION ── */
+        .quote-section {
+            margin: 4px 40px 0;
+            position: relative;
+            z-index: 1;
+            background: rgba(230, 220, 200, 0.45);
+            border-radius: 10px;
+            padding: 22px 200px 22px 24px;
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+        }
+
+        .quote-text {
+            font-family: 'Noto Serif Tamil', serif;
+            font-style: italic;
+            font-size: 14.5px;
+            color: #333;
+            line-height: 1.75;
+        }
+
+        .elder-img {
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Draw elder with CSS art */
+        .elder-figure {
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+            width: 175px;
+            height: 170px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        /* ── ADDRESS SECTION ── */
+        .address-section {
+            padding: 22px 40px 16px;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+
+
+        .address-line {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .phone-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a2a5e;
+            margin-bottom: 16px;
+        }
+
+        .phone-icon {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #1a2a5e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .qr-placeholder {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* QR code pattern simulation */
+        .qr-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            background:
+                /* corners */
+                linear-gradient(#000 100%, transparent 0) 0 0 / 20px 20px no-repeat,
+                linear-gradient(#000 100%, transparent 0) calc(100%) 0 / 20px 20px no-repeat,
+                linear-gradient(#000 100%, transparent 0) 0 calc(100%) / 20px 20px no-repeat,
+                /* inner pattern dots */
+                repeating-linear-gradient(90deg, #000 0, #000 4px, transparent 4px, transparent 8px) 0 28px / 60px 4px no-repeat,
+                repeating-linear-gradient(90deg, #000 0, #000 4px, transparent 4px, transparent 8px) 0 40px / 44px 4px no-repeat,
+                repeating-linear-gradient(90deg, transparent 0, transparent 4px, #000 4px, #000 8px) 0 52px / 60px 4px no-repeat;
+        }
+
+        .qr-inner {
+            width: 60px;
+            height: 60px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+            gap: 1px;
+            padding: 2px;
+        }
+
+        .qr-label {
+            font-size: 11px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #2a2a2a;
+            padding: 16px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .website {
+            font-size: 20px;
+            color: white;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Separator line */
+        .sep {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c4a96d, transparent);
+            margin: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Elder illustration using SVG inline */
+        .elder-svg {
+            width: 170px;
+            height: auto;
+            max-height: 180px;
+        }
+
+        .qr-img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        @media print {
+            @page {
+                margin: 0;
+            }
+
+            body {
+                background: none;
+                padding: 0;
+                display: block;
+            }
+
+            .flyer {
+                width: 100%;
+                max-width: none;
+                border: none;
+                box-shadow: none;
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flyer">
+
+        <!-- LOGO -->
+        <div class="logo-section">
+            <!-- Placeholder for Logo Image -->
+            <img src="assets/logo.svg" alt="Manam Logo" class="logo-svg" id="logo-img">
+
+            <div class="brand-name-ta">மனம்</div>
+            <div class="tagline">“வாழ்க்கையை முழுமையாக அனுபவியுங்கள்”</div>
+        </div>
+
+        <!-- HEADLINE -->
+        <div class="headline-section">
+            <div class="headline">அன்பு மரியாதை பராமரிப்பு <br>நிறைந்த முதியோர் வாழ்வை உருவாக்குகிறோம்</div>
+        </div>
+
+        <div class="sep"></div>
+
+        <!-- FEATURES -->
+        <div class="features-section">
+
+            <!-- Holistic Living -->
+            <div class="feature">
+                <div class="feature-icon-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
+                        <path d="M9 21V12h6v9" />
+                    </svg>
+                </div>
+                <div class="feature-text">
+                    <div class="feature-title">முழுமையான வாழ்வு</div>
+                    <div class="feature-desc">முதியோருக்கு ஏற்ற எளிய அறைகள் மற்றும் வசதியான கட்டமைப்பு</div>
+                </div>
+            </div>
+
+            <!-- Nutrition -->
+            <div class="feature">
+                <div class="feature-icon-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 11h18M12 3v4M8 7c0-2 1.5-4 4-4s4 2 4 4" />
+                        <path d="M5 11v8a2 2 0 002 2h10a2 2 0 002-2v-8" />
+                        <line x1="10" y1="15" x2="10" y2="18" />
+                        <line x1="14" y1="15" x2="14" y2="18" />
+                    </svg>
+                </div>
+                <div class="feature-text">
+                    <div class="feature-title">சத்தான உணவு</div>
+                    <div class="feature-desc">ஊட்டச்சத்து நிபுணர்கள் திட்டமிடும் சைவ / அசைவ உணவுகள்</div>
+                </div>
+            </div>
+
+            <!-- Health First -->
+            <div class="feature">
+                <div class="feature-icon-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 21C12 21 4 13.5 4 8.5a5 5 0 0110 0 5 5 0 0110 0c0 5-8 12.5-8 12.5z" />
+                        <path d="M9 8.5h6M12 6v5" />
+                    </svg>
+                </div>
+                <div class="feature-text">
+                    <div class="feature-title">ஆரோக்கியம் முதன்மை</div>
+                    <div class="feature-desc">தொடர்ச்சியான உடல்நல பரிசோதனைகள், மருந்து மேலாண்மை மற்றும் 24/7 பராமரிப்பு
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community -->
+            <div class="feature">
+                <div class="feature-icon-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="3" />
+                        <circle cx="5" cy="11" r="2.5" />
+                        <circle cx="19" cy="11" r="2.5" />
+                        <path d="M12 13c-3.5 0-6 1.8-6 4v1h12v-1c0-2.2-2.5-4-6-4z" />
+                        <path d="M5 15c-2 0-3.5 1-3.5 2.5V18h4" />
+                        <path d="M19 15c2 0 3.5 1 3.5 2.5V18h-4" />
+                    </svg>
+                </div>
+                <div class="feature-text">
+                    <div class="feature-title">சமூக உறவு</div>
+                    <div class="feature-desc">சமூக நிகழ்ச்சிகள், பஜனை, திரைப்பட இரவுகள் மற்றும் எளிய உடற்பயிற்சி</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- QUOTE + ELDER -->
+        <div class="quote-section">
+            <div class="quote-text">
+                "மனம், இது ஒரு முதியோர் இல்லம் மட்டுமல்ல; இது ஒரு குடும்பம். இங்கு வாழும் ஒவ்வொருவரும் அன்பும்
+                மரியாதையுடன் கவனிக்கப்படுவார்கள் என்பதே எங்கள் வாக்குறுதி!"
+            </div>
+
+            <!-- Elder reading -->
+            <img src="assets/Elder_read.png" alt="Elder Reading" class="elder-img">
+        </div>
+
+        <!-- ADDRESS -->
+        <div class="address-section">
+            <div class="address-left">
+                <div class="address-line">
+                    எண் 17, நீலகிரி ஹைலாண்ட்ஸ் பேஸ் 2,<br>
+                    காரமடை, மேட்டுப்பாளையம், கோயம்புத்தூர்.
+                </div>
+                <div class="phone-line">
+                    <div class="phone-icon">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a2a5e" stroke-width="2.5">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    +91 99949 49525
+                </div>
+
+                <!-- QR Code -->
+                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;">
+                    <img src="assets/qr_code.jpg" alt="Scan for Location" class="qr-img">
+                    <span style="font-size:11px;color:#555;font-weight:500;">இடத்தை காண ஸ்கேன் செய்க</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="website">www.manameldershome.in</div>
+        </div>
+
+    </div>
+</body>
+
+</html>
