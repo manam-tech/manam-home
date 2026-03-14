@@ -600,6 +600,55 @@ h6 {
     opacity: 1;
 }
 
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float i {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.whatsapp-float:hover {
+    background-color: #1ebe5b;
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.65);
+    transform: scale(1.1);
+    color: white;
+}
+
+/* WhatsApp inline link in contact section */
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #25D366;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.whatsapp-link:hover {
+    color: #1ebe5b;
+}
+
+.whatsapp-link i {
+    font-size: 1.1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .header .container {
